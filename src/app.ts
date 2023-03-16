@@ -1,13 +1,14 @@
-require("dotenv").config();
+import express from "express";
+import env from "dotenv";
 
-const express = require("express");
 const app = express();
 
-app.get("/", (req: any, res: any) => {
+env.config();
+
+app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
 app.listen(process.env.PORT, () => {
-  console.log("boop");
+  console.log(`[server]: Server running at http://localhost:${process.env.PORT}/`);
 });
-
